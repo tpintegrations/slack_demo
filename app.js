@@ -4,13 +4,11 @@ var request = require('request');
 const { Pool } = require('pg')
 
 const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    database:"postgres",
-    password:"Eniyan007!",
-    max: 20,
-    idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 2000,
+    host: process.env.DATABASE_URL,
+    user: 'lnxooeczdzvxcc',
+    database:"d6gtdplhaftl7p",
+    password:"8a9650d4e862d62a57ec4f18dc8a5e88030fd2f789e4258e589c346b3c054296",
+    ssl:true
   });
 
 pool.on('error', (err, client) => {
