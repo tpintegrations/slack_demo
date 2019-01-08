@@ -572,4 +572,4 @@ app.post("/actions",async (req,res)=>{
     }
 })
 
-app.listen(()=>{console.log("listening")});
+app.listen(process.env.PORT || 5000,()=>{console.log("listening")});
