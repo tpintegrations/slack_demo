@@ -572,4 +572,4 @@ app.post("/actions",async (req,res)=>{
     }
 })
 
-app.listen(5000,()=>{console.log("listening")});
+app.listen(80,()=>{console.log("listening")});
