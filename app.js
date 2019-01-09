@@ -17,8 +17,8 @@ pool.on('error', (err, client) => {
 
 const app = express();
 
-const clientId = '515090184532.515258122066';
-const clientSecret = '9435d88cbb43918bc2012a65324e560a';
+const clientId = {SLACK_CLIENT_ID};
+const clientSecret = {SLACK_CLIENT_SECRET};
 var short_url;
 var action;
 var attachments = [];
@@ -350,7 +350,7 @@ app.post("/slack",async (req,res)=>{
                         console.log(place);
                         await new Promise((resolve,reject)=>{
                             request({
-                                "url":"https://api.apixu.com/v1/current.json?key=b450e7bbcd6240028c1101243190801&q="+place,
+                                "url":"https://api.apixu.com/v1/current.json?key={WEATHER_API_KEY}"+place,
                                 method:"GET"
                             },(err,res,body)=>{
                                 if(err){
@@ -506,7 +506,7 @@ app.post("/actions",async (req,res)=>{
                     else{
                         console.log(url);
                         await new Promise((resolve,reject)=>{request({
-                            "url" : "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyAIhbJMjlCGIxbStFigerDhtKnvW_j7Xs0",
+                            "url" : "https://www.googleapis.com/urlshortener/v1/url?key={URL_SHORTNER_API_KEY}",
                             method : "POST",
                             body:JSON.stringify({
                                 longUrl:url[0]
